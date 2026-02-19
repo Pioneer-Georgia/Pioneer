@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Pioneer — Engineering Resonance</title>
     <meta name="description" content="Architecting the fundamental horizon. Transcending the derivative by moving beyond legacy industry to define a new technological pulse." />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,14 +31,33 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
+      html {
+        -webkit-text-size-adjust: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
       body {
         margin: 0;
         padding: 0;
         background-color: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         overflow: hidden;
+        width: 100vw;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overscroll-behavior: none;
+        touch-action: none;
       }
-      .logo-transition {
-        transition: opacity 0.3s ease-in-out;
+      
+      #scaler-container {
+        width: 420px; 
+        height: 800px;
+        position: relative;
+        transform-origin: center center;
+        will-change: transform;
       }
     </style>
 <script type="importmap">
@@ -52,92 +71,86 @@
 </script>
 </head>
   <body>
-    <div class="flex items-center justify-center h-screen w-screen bg-white overflow-hidden">
-      
-      <div 
-        id="scaler-container"
-        class="flex flex-col items-center justify-between text-center select-none py-8"
-        style="transform-origin: center center;"
-      >
-        
-        <div class="flex-1 flex flex-col items-center justify-center gap-10 w-full">
-          <div class="flex flex-col items-center gap-4">
-            <h1 class="text-[42px] leading-none font-bold tracking-widest text-neutral-900 uppercase font-business">
-              Pioneer
-            </h1>
-            <p class="text-[13px] font-medium tracking-[0.20em] text-gray-500 uppercase -mt-1">
-              Engineering Resonance
-            </p>
-          </div>
+    <div id="root" style="display: none;"></div>
 
-          <div class="py-8">
-            <div class="relative flex items-center justify-center w-28 h-28 select-none">
-              
-              <div class="relative w-16 h-16">
-                <div 
-                  class="absolute top-0 -left-1 w-16 h-16 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
-                ></div>
-                
-                <div 
-                  class="absolute top-0 -right-1 w-16 h-16 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
-                  style="animation-delay: 2s;"
-                ></div>
-                
-                <div 
-                  class="absolute -bottom-3 left-4 w-16 h-16 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
-                  style="animation-delay: 4s;"
-                ></div>
-              </div>
+    <div id="scaler-container" class="flex flex-col items-center justify-between text-center select-none py-10 px-6 bg-white">
+        
+      <div class="flex-1 flex flex-col items-center justify-center w-full gap-12">
+        
+        <div class="flex flex-col items-center gap-4">
+          <h1 class="text-[42px] leading-none font-bold tracking-widest text-neutral-900 uppercase font-business">
+            Pioneer
+          </h1>
+          <p class="text-[13px] font-medium tracking-[0.20em] text-gray-500 uppercase -mt-1">
+            Engineering Resonance
+          </p>
+        </div>
+
+        <div class="py-8">
+          <div class="relative flex items-center justify-center w-28 h-28 select-none">
+            <div class="relative w-16 h-16">
+              <div 
+                class="absolute top-0 -left-1 w-16 h-16 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
+              ></div>
+              <div 
+                class="absolute top-0 -right-1 w-16 h-16 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
+                style="animation-delay: 2s;"
+              ></div>
+              <div 
+                class="absolute -bottom-3 left-4 w-16 h-16 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
+                style="animation-delay: 4s;"
+              ></div>
             </div>
           </div>
-
-          <div class="flex flex-col items-center gap-2 text-lg text-black font-medium leading-relaxed">
-            <p class="font-semibold text-xl mb-2 font-business">Get in touch</p>
-            <p>Tbilisi, Georgia</p>
-            <p>Chavchavadze Ave. 37M</p>
-            <p>Phone: +995 0322 11 10 11</p>
-            <p>E-mail: info@pioneer.ge</p>
-          </div>
         </div>
 
-        <div class="flex flex-col items-center w-full mt-auto mb-10">
-          <div class="flex flex-col items-center gap-1 text-sm text-gray-500">
-            <p>Pioneer LTD</p>
-            <p>2026 © All Rights Reserved</p>
-          </div>
+        <div class="flex flex-col items-center gap-2 text-lg text-black font-medium leading-relaxed select-text cursor-text">
+          <p class="font-semibold text-xl mb-2 font-business select-none cursor-default">Get in touch</p>
+          <p>Tbilisi, Georgia</p>
+          <p>Chavchavadze Ave. 37M</p>
+          <p class="hover:text-blue-600 transition-colors"><a href="tel:+9950322111011">Phone: +995 0322 11 10 11</a></p>
+          <p class="hover:text-blue-600 transition-colors"><a href="mailto:info@pioneer.ge">E-mail: info@pioneer.ge</a></p>
         </div>
+      </div>
 
+      <div class="flex flex-col items-center w-full mt-auto pt-6">
+        <div class="flex flex-col items-center gap-1 text-sm text-gray-500">
+          <p>Pioneer LTD</p>
+          <p>2026 © All Rights Reserved</p>
         </div>
+      </div>
+
     </div>
 
     <script>
-      const DESIGN_BASE = {
-        WIDTH: 420,
-        HEIGHT: 840,
-      };
+      function fitContent() {
+        const container = document.getElementById('scaler-container');
+        if (!container) return;
 
-      const container = document.getElementById('scaler-container');
+        const baseWidth = 420;
+        const baseHeight = 800;
 
-      container.style.width = `${DESIGN_BASE.WIDTH}px`;
-      container.style.height =>
-  <head>
-    <meta charse
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
 
-      function handleResize() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        const scaleX = vw / baseWidth;
+        const scaleY = vh / baseHeight;
 
-        const scaleX = width / DESIGN_BASE.WIDTH;
-        const scaleY = height / DESIGN_BASE.HEIGHT;
-
-        const scale = Math.min(scaleX, scaleY) * 0.90;
-
-        container.style.transform =beyond legacy indus
+        let scale = Math.min(scaleX, scaleY);
+        
+        container.style.transform = `scale(${scale})`;
       }
 
-      handleResize();
+      fitContent();
 
-      window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', fitContent);
+      
+      window.addEventListener('orientationchange', () => {
+        setTimeout(fitContent, 100);
+        setTimeout(fitContent, 500); 
+      });
+      
+      window.addEventListener('pageshow', fitContent);
     </script>
   </body>
 </html>
