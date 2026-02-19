@@ -136,7 +136,7 @@
         const scaleX = vw / baseWidth;
         const scaleY = vh / baseHeight;
 
-        let scale = Math.min(scaleX, scaleY);
+        let scale = Math.min(scaleX, scaleY) * 0.85;
         
         container.style.transform = `scale(${scale})`;
       }
